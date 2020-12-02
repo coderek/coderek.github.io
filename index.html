@@ -23,24 +23,85 @@
 
   <style type="text/css">
 
-iframe {
-  border: 1px solid black;
+#container {
+  border: none;
   width: 100%;
+  height: 600px;
+}
+
+html, body {
+  background: #eaeaea;
+  font-family: sans-serif;
+}
+
+iframe {
+  border: none;
 }
 
 .output {
   background: #eee;
 }
+
+    .content {
+      padding: 20px;
+    }
+
+    #loading {
+      text-align: center;
+      margin: 40px auto;
+    }
   </style>
 </head>
 
 <body>
-  <iframe id="inlineFrameExample"
-          title="Inline Frame Example"
-          width="300"
-          height="600"
-          src="https://gitlab.com/">
-  </iframe>
+
+  <div class="content">
+  <h2>
+  Test embedding iframe
+  </h2>
+  </div>
+
+  <div id='container'>
+    <div id="loading">Loading iframe content......</div>
+  </div>
+
+  <div>
+
+    <div class='content'>
+      <h3>Security</h3>
+      <p>
+      iStaff page should return:
+      <pre>
+      Content-Security-Policy: frame-ancestors https://people.bytedance.net <source>;
+      </pre>
+      </p>
+      <p>
+      iStaff website will be only loaded under https://people.bytedance.net which is a trustful side.
+      </p>
+
+      <h3>Communication</h3>
+      <p>
+      PostMessage <br/>
+      popular library <a href="https://github.com/dollarshaveclub/postmate">postmate</a>
+      </p>
+      <p>
+      By default, iframe prevent access of host content. By using PostMessage, it provides a safe mechanism for host to respond selectively per iframe request. 
+      </p>
+
+
+      <h3>Cookie</h3>
+      <p>
+      Bytedance Cookie can be safely shared on different domain
+      </p>
+
+      <p>
+      To secure the cookie, set http-only and whitelist only bytedance and iStaff domain.
+      Path can only be specified to narrow down the restriction.
+      </p>
+    </div>
+
+
+  </div>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
@@ -52,6 +113,22 @@ iframe {
     ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async></script>
+  <script>
+    const ifr = document.createElement('iframe')
+    ifr.id = 'inlineFrameExample'
+    ifr.src = "https://gitlab.com/"
+    ifr.style.width = '100%'
+    ifr.style.height = '100%'
+    ifr.style.visibility = 'hidden'
+
+    ifr.onload = function () {
+      console.log('loaded')
+      ifr.style.visibility = 'visible'
+      document.querySelector('#loading').remove()
+    }
+
+    document.querySelector('#container').appendChild(ifr)
+  </script>
 </body>
 
 </html>
