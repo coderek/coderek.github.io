@@ -27,8 +27,8 @@
   border: none;
   width: 100%;
   height: 600px;
-  overflow:auto;
-  -webkit-overflow-scrolling:touch;
+	-webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
 }
 
 html, body {
@@ -79,11 +79,11 @@ iframe {
     <h2>
       Test embedding iframe
     </h2>
+  </div>
 
-    <div id='container'>
-    </div>
+    <div id='container'></div>
 
-    <div>
+    <div class="main">
       <div class='content'>
         <h3>Security</h3>
         <p>
@@ -142,7 +142,7 @@ iframe {
       console.log('loaded')
       ifr.style.visibility = 'visible'
       document.querySelector('#loading').remove()
-      document.querySelector('.main').style.visibility = 'visible'
+      document.querySelectorAll('.main').forEach(el => el.style.visibility = 'visible')
       document.body.style.height = 'auto'
       document.body.style.overflow = 'auto'
     }
