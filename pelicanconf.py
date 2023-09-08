@@ -6,7 +6,7 @@ PATH = 'content'
 
 TIMEZONE = 'Asia/Singapore'
 
-DEFAULT_LANG = 'zh'
+DEFAULT_LANG = 'zh_CN'
 # DEFAULT_DATE_FORMAT = {
 #     'en': '%a, %d %b %Y',
 #     'zh': '%Y-%m-%d(%a)',
@@ -34,3 +34,7 @@ DEFAULT_PAGINATION = False
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
 OUTPUT_PATH = "docs/"
+
+PLUGIN_PATHS = ['/Users/derekzeng/Downloads/pelican-plugins']
+PLUGINS = ['pelican-cjk']
+CJK_AUTO_SPACING = False
