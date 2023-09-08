@@ -70,7 +70,8 @@ def serve(c):
     if OPEN_BROWSER_ON_SERVE:
         # Open site in default browser
         import webbrowser
-        webbrowser.open("http://{host}:{port}".format(**CONFIG))
+        browser = webbrowser.get('chrome')
+        browser.open("http://{host}:{port}".format(**CONFIG))
 
     sys.stderr.write('Serving at {host}:{port} ...\n'.format(**CONFIG))
     server.serve_forever()

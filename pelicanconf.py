@@ -1,12 +1,16 @@
-AUTHOR = 'Derek'
-SITENAME = 'DZ blog'
+AUTHOR = 'DZ'
+SITENAME = '瞎扯淡'
 SITEURL = ''
 
 PATH = 'content'
 
 TIMEZONE = 'Asia/Singapore'
 
-DEFAULT_LANG = 'en'
+DEFAULT_LANG = 'zh'
+# DEFAULT_DATE_FORMAT = {
+#     'en': '%a, %d %b %Y',
+#     'zh': '%Y-%m-%d(%a)',
+# }
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
