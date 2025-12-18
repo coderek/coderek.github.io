@@ -1,0 +1,8 @@
+pelican>=4.0
+Markdown
+Pygments
+typogrify
+livereload
+ghp-import
+# Optional: CJK handling plugin (install if you need automatic CJK spacing)
+# pelican-cjk
