@@ -43,3 +43,7 @@ PLUGIN_PATHS = ['plugins/cjk-auto-spacing', 'plugins']
 PLUGINS = ['cjk_auto_spacing']
 # Enable automatic spacing for CJK content
 CJK_AUTO_SPACING = True
+
+MARKDOWN = {
+  'extensions': ['markdown.extensions.attr_list']
+}
