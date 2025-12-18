@@ -35,6 +35,11 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 OUTPUT_PATH = "docs/"
 
-PLUGIN_PATHS = ['/Users/derekzeng/Downloads/pelican-plugins']
-PLUGINS = ['pelican-cjk']
-CJK_AUTO_SPACING = False
+# Plugin configuration: prefer installing plugins into the Python environment
+# and listing them here by import name. Remove any hard-coded absolute
+# filesystem paths so the project is portable.
+# Load plugins from the bundled `pelican-plugins` directory (cloned locally).
+PLUGIN_PATHS = ['plugins/cjk-auto-spacing', 'plugins']
+PLUGINS = ['cjk_auto_spacing']
+# Enable automatic spacing for CJK content
+CJK_AUTO_SPACING = True
